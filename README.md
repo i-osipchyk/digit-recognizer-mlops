@@ -1,2 +1,5 @@
-# digit-recognizer-mlops
-Focus of this project is on deploying Digit Recognizer model into production.
+# Digit Recognizer MLOps
+
+This project uses already trained model from i-osipchyk/digit-recognizer repository.
+
+Main objective of this project is to deploy the model in production using Python backend framework, Docker, Cloud Platforms and DevOps tools for CI/CD pipeline.
