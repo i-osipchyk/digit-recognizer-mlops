@@ -5,12 +5,22 @@ from fastapi.templating import Jinja2Templates
 import uvicorn
 from PIL import Image
 import io
+import os
 
 app = FastAPI()
 
 # Connect application to frontend
-app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+is_docker = os.environ.get('DOCKER', False)
+
+if is_docker:
+    static_dir = "app/static"
+    templates_dir = "app/templates"
+else:
+    static_dir = "static"
+    templates_dir = "templates"
+
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
+templates = Jinja2Templates(directory=templates_dir)
 
 
 def predict(image: Image.Image):
