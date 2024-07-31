@@ -3,3 +3,6 @@ uvicorn
 pillow
 jinja2
 python-multipart
+numpy
+keras
+tensorflow
